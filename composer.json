@@ -1,0 +1,15 @@
+{
+	"name" : "yacmed/generated code",
+	"description" : "A generated WS using Code Forward",
+	"license" : "MIT",
+	"authors" : [{
+		"name" : "Yacine",
+		"email" : "my.meddah@gmail.com"
+		}
+	],
+	"autoload" : {
+		"psr-4" : {
+			"Api\\" : "Api"
+		}
+	}
+}
