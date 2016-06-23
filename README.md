@@ -15,7 +15,7 @@
 
 ```$ cd webapp```
 
-```$ cd npm install```
+```$ npm install```
 
 #Architecture du projet
 
