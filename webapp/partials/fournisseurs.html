@@ -1,20 +1,20 @@
 <div class="container" id="fournisseurs">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            Ajout d'un fournisseur
+            Ajout d'un fournisseur {{fournisseur.nom}}
         </div>
         <div class="panel-body">
             <form class="form-inline">
                 <div class="control-group col-md-6">
                     <label class="control-label" for="nomFrounisseur">Fournisseur</label>
                     <div class="controls">
-                        <input type="text" id="nomFrounisseur" placeholder="Nom du fournisseur" class="form-control">
+                        <input type="text" id="nomFrounisseur" placeholder="Nom du fournisseur" class="form-control" ng-model="fournisseur.nom">
                     </div>
                 </div>
                 <div class="control-group col-md-6">
                     <label class="control-label" for="adresseFrounisseur">Addresse</label>
                     <div class="controls">
-                        <input type="text" id="adresseFrounisseur" placeholder="Adresse du fournisseur" class="form-control">
+                        <input type="text" id="adresseFrounisseur" placeholder="Adresse du fournisseur" class="form-control" ng-model="fournisseur.adresse">
                     </div>
                 </div>
                 <div class="control-group pull-right">
@@ -40,10 +40,10 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>TODO :: Modifier/Supprimer</td>
-                        <td>TODO</td>
-                        <td>TODO</td>
+                    <tr ng-repeat="fournisseur in fournisseurs">
+                        <td><a class="btn btn-primary" href="{{fournisseur.id}}"><span class="glyphicon glyphicon-pencil"></span> </a><a class="btn btn-danger" href="{{fournisseur.id}}"><span class="glyphicon glyphicon-remove"></span> </a> </td>
+                        <td>{{fournisseur.nom}}</td>
+                        <td>{{fournisseur.adresse}}</td>
                     </tr>
                     </tbody>
                 </table>

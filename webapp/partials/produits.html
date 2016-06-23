@@ -8,7 +8,7 @@
                 <div class="control-group col-md-4">
                     <label class="control-label" for="fournisseur_id">Fournisseur</label>
                     <div class="controls">
-                        <select class="form-control" id="fournisseur_id">
+                        <select class="form-control" id="fournisseur_id" ng-model="produit.fournisseur">
                             <option>TODO</option>
                             <option>TODO</option>
                             <option>TODO</option>
@@ -19,25 +19,25 @@
                 <div class="control-group col-md-4">
                     <label class="control-label" for="nomProduit">Nom du produit</label>
                     <div class="controls">
-                        <input type="text" id="nomProduit" placeholder="Nom du produit" class="form-control">
+                        <input type="text" id="nomProduit" placeholder="Nom du produit" class="form-control" ng-model="produit.libelle">
                     </div>
                 </div>
                 <div class="control-group col-md-4">
                     <label class="control-label" for="htProduit">Prix HT</label>
                     <div class="controls">
-                        <input type="text" id="htProduit" placeholder="Prix Hors taxe" class="form-control">
+                        <input type="text" id="htProduit" placeholder="Prix Hors taxe" class="form-control" ng-model="produit.prixHt">
                     </div>
                 </div>
                 <div class="control-group col-md-4">
                     <label class="control-label" for="tvaProduit">Taux de TVA</label>
                     <div class="controls">
-                        <input type="text" id="tvaProduit" placeholder="Taux de TVA" class="form-control">
+                        <input type="text" id="tvaProduit" placeholder="Taux de TVA" class="form-control" ng-model="produit.tva">
                     </div>
                 </div>
                 <div class="control-group col-md-4">
                     <label class="control-label" for="ttcProduit">Prix TTC</label>
                     <div class="controls">
-                        <input type="text" id="ttcProduit" placeholder="Prix TTC du produit" class="form-control">
+                        <input type="text" id="ttcProduit" placeholder="Prix TTC du produit" class="form-control" ng-model="produit.prixTtc">
                     </div>
                 </div>
                 <div class="control-group col-md-4">
@@ -66,13 +66,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>TODO :: Modifier/Supprimer</td>
-                        <td>TODO</td>
-                        <td>TODO</td>
-                        <td>TODO</td>
-                        <td>TODO</td>
-                        <td>TODO</td>
+                    <tr ng-repeat = "produit in produits">
+                        <td><a class="btn btn-danger" href="{{produit.id}}"><span class="glyphicon glyphicon-remove"></span> </a></td>
+                        <td>{{produit.libelle}}</td>
+                        <td>{{produit.prixHt}}</td>
+                        <td>{{produit.tva}}</td>
+                        <td>{{produit.prixTtc}}</td>
+                        <td>{{produit.fournisseur}}</td>
                     </tr>
                     </tbody>
                 </table>
