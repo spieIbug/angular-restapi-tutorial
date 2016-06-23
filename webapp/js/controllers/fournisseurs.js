@@ -3,34 +3,55 @@
  */
 (function(){
     'use strict';
-    angular.module('FournisseursModule').controller('FournisseursCtrl', function($scope){
+    angular.module('FournisseursModule').controller('FournisseursCtrl', function($scope, FournisseursFactory){
         toastr.info('Fournisseurs controller has been loaded');
+        $scope.fournisseurs = [];
+        FournisseursFactory.fetchAll().success(function(xhrData){
+            if (xhrData.error){
+                toastr.error(xhrData.message);
+            } else {
+                $scope.fournisseurs = xhrData.data;
+                toastr.info('Loaded datas');
+            }
+        }).error(function(data){
+            toastr.error('Server communication Error');
+        });
         $scope.fournisseur = {
-            nom : 'Yacine',
-            adresse : 'Lyon, France'
+            nom : null,
+            adresse : null
         };
-        $scope.fournisseurs =
-            [
-                {
-                    id:1,
-                    nom : 'Yacine',
-                    adresse : 'Lyon, France'
+        $scope.ajouterFournisseur = function(){
+            FournisseursFactory.save($scope.fournisseur).success(function(xhrData){
+                if (xhrData.error){
+                    toastr.error(xhrData.message);
+                } else {
+                    $scope.fournisseur.id=xhrData.data;
+                    $scope.fournisseurs.push($scope.fournisseur);
+                    $scope.fournisseur = {};
+                    toastr.info('Loaded datas');
                 }
-                ,{
-                id:2,
-                nom : 'MEDDAH',
-                adresse : 'Lyon, France'
-            }
-                ,{
-                id:3,
-                nom : 'John',
-                adresse : 'Saida'
-            }
-                ,{
-                id:4,
-                nom : 'Doe',
-                adresse : 'Algérie'
-            }
-            ];
+            }).error(function(data){
+                toastr.error('Server communication Error');
+            });
+        };
+        $scope.annulerSaisie = function(){
+            $scope.fournisseur = {
+                nom : null,
+                adresse : null
+            };
+        };
+        $scope.supprimerFournisseur = function(object){
+            FournisseursFactory.delete(object.id).success(function(xhrData){
+                if (xhrData.error){
+                    toastr.error(xhrData.message);
+                } else {
+                    $scope.fournisseurs.splice($scope.fournisseurs.indexOf(object),1);
+                    toastr.info('Fournisseur supprim\u00e9 '+object.nom);
+                }
+            }).error(function(data){
+                toastr.error('Server communication Error');
+            });
+        };
+        
     });
 })();

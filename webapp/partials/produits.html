@@ -7,12 +7,8 @@
             <form class="form-inline">
                 <div class="control-group col-md-4">
                     <label class="control-label" for="fournisseur_id">Fournisseur</label>
-                    <div class="controls">
-                        <select class="form-control" id="fournisseur_id" ng-model="produit.fournisseur">
-                            <option>TODO</option>
-                            <option>TODO</option>
-                            <option>TODO</option>
-                            <option>TODO</option>
+                    <div class="controls" ng-controller="FournisseursCtrl">
+                        <select class="form-control" id="fournisseur_id" ng-model="produit.fournisseurs_id" ng-options="fournisseur.id as fournisseur.nom for fournisseur in fournisseurs">
                         </select>
                     </div>
                 </div>
@@ -25,7 +21,7 @@
                 <div class="control-group col-md-4">
                     <label class="control-label" for="htProduit">Prix HT</label>
                     <div class="controls">
-                        <input type="text" id="htProduit" placeholder="Prix Hors taxe" class="form-control" ng-model="produit.prixHt">
+                        <input type="text" id="htProduit" placeholder="Prix Hors taxe" class="form-control" ng-model="produit.prix_ht">
                     </div>
                 </div>
                 <div class="control-group col-md-4">
@@ -37,13 +33,13 @@
                 <div class="control-group col-md-4">
                     <label class="control-label" for="ttcProduit">Prix TTC</label>
                     <div class="controls">
-                        <input type="text" id="ttcProduit" placeholder="Prix TTC du produit" class="form-control" ng-model="produit.prixTtc">
+                        <input type="text" id="ttcProduit" placeholder="Prix TTC du produit" class="form-control" ng-value="produit.prix_ttc = produit.prix_ht*(1+(produit.tva/100))" ng-disabled="true">
                     </div>
                 </div>
                 <div class="control-group col-md-4">
                     <div class="controls">
-                        <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Valider</a>
-                        <a href="#" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Annuler</a>
+                        <a class="btn btn-success" ng-click="ajouterProduit()"><span class="glyphicon glyphicon-plus"></span> Valider</a>
+                        <a class="btn btn-danger" ng-click="annulerSaisie()"><span class="glyphicon glyphicon-remove"></span> Annuler</a>
                     </div>
                 </div>
             </form>
@@ -76,13 +72,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat = "produit in produits | filter : query">
-                        <td><a class="btn btn-danger" href="{{produit.id}}"><span class="glyphicon glyphicon-remove"></span> </a></td>
+                    <tr ng-repeat = "produit in produits">
+                        <td><a class="btn btn-danger" ng-click="supprimerProduit(produit)"><span class="glyphicon glyphicon-remove"></span> </a></td>
                         <td>{{produit.libelle}}</td>
-                        <td>{{produit.prixHt | euroFormat}}</td>
+                        <td>{{produit.prix_ht | euroFormat}}</td>
                         <td>{{produit.tva | percent}}</td>
-                        <td>{{produit.prixTtc | euroFormat}}</td>
-                        <td>{{produit.fournisseur}}</td>
+                        <td>{{produit.prix_ttc | euroFormat}}</td>
+                        <td>{{produit.fournisseur.nom}}</td>
                     </tr>
                     </tbody>
                 </table>

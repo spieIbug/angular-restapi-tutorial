@@ -19,8 +19,8 @@
                 </div>
                 <div class="control-group pull-right">
                     <div class="controls">
-                        <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Valider</a>
-                        <a href="#" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Annuler</a>
+                        <a class="btn btn-success" ng-click="ajouterFournisseur()"><span class="glyphicon glyphicon-plus"></span> Valider</a>
+                        <a class="btn btn-danger" ng-click="annulerSaisie()"><span class="glyphicon glyphicon-remove"></span> Annuler</a>
                     </div>
                 </div>
             </form>
@@ -51,7 +51,7 @@
                     </thead>
                     <tbody>
                     <tr ng-repeat="fournisseur in fournisseurs | filter : query">
-                        <td><a class="btn btn-primary" href="{{fournisseur.id}}"><span class="glyphicon glyphicon-pencil"></span> </a><a class="btn btn-danger" href="{{fournisseur.id}}"><span class="glyphicon glyphicon-remove"></span> </a> </td>
+                        <td><a class="btn btn-primary" href="{{fournisseur.id}}"><span class="glyphicon glyphicon-pencil"></span> </a><a class="btn btn-danger" ng-click="supprimerFournisseur(fournisseur)"><span class="glyphicon glyphicon-remove"></span> </a> </td>
                         <td>{{fournisseur.nom}}</td>
                         <td>{{fournisseur.adresse}}</td>
                     </tr>
