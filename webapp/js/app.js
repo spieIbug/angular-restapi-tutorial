@@ -3,6 +3,24 @@
  */
 (function(){
     'use strict';
-    angular.module('MainApp',[]);
-    // OUr module is defined now
+    angular.module('MainApp',['ui.router']);
+    angular.module('MainApp').config(function($stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise("/");
+        $stateProvider
+            .state('home', {
+                url: "/",
+                templateUrl: "partials/home.html"
+            })
+            .state('fournisseur', {
+                url: "/fournisseur",
+                templateUrl: "partials/fournisseurs.html",
+                controller: function ($scope) {
+                    console.log('we will see later');
+                }
+            })
+            .state('produit', {
+                url: "/produit",
+                templateUrl: "partials/produits.html"
+            });
+    });
 })();
