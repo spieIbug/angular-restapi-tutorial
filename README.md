@@ -9,9 +9,17 @@
 8. Branche directives   ```git checkout directives```
 9. Branche js-minification   ```git checkout js-minification```
 
+#Installation
+
+```$ composer dump-autoload```
+
+```$ cd webapp```
+
+```$ cd npm install```
+
 #Architecture du projet
 
-Voir cette présentation prezi : 
+Voir cette présentation prezi :
 
 https://prezi.com/gzyx3hd79lxz/build-modern-web-apps/
 
