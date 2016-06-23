@@ -5,6 +5,13 @@
     'use strict';
     angular.module('MainApp',['ui.router','FournisseursModule', 'ProduitsModule']);
     angular.module('MainApp').config(function($stateProvider, $urlRouterProvider) {
+        toastr.options.closeButton = true;
+        toastr.options.closeHtml = '<button><i class="glyphicon glyphicon-remove"></i></button>';
+        toastr.options.closeMethod = 'fadeOut';
+        toastr.options.closeDuration = 300;
+        toastr.options.closeEasing = 'swing';
+        toastr.options.newestOnTop = false;
+        toastr.options.preventDuplicates = true;
         $urlRouterProvider.otherwise("/");
         $stateProvider
             .state('home', {
@@ -14,13 +21,12 @@
             .state('fournisseur', {
                 url: "/fournisseur",
                 templateUrl: "partials/fournisseurs.html",
-                controller: function ($scope) {
-                    console.log('we will see later');
-                }
+                controller: 'FournisseursCtrl'
             })
             .state('produit', {
                 url: "/produit",
-                templateUrl: "partials/produits.html"
+                templateUrl: "partials/produits.html",
+                controller : 'ProduitsCtrl'
             });
     });
 })();
