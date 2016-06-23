@@ -3,7 +3,7 @@
  */
 (function(){
     'use strict';
-    angular.module('MainApp',['ui.router']);
+    angular.module('MainApp',['ui.router','FournisseursModule', 'ProduitsModule']);
     angular.module('MainApp').config(function($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise("/");
         $stateProvider
