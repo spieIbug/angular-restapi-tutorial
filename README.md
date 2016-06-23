@@ -11,6 +11,10 @@
 
 #Architecture du projet
 
+Voir cette présentation prezi : 
+
+https://prezi.com/gzyx3hd79lxz/build-modern-web-apps/
+
 #Environnement technique
 PHP 5.6 > + Angular 1.x
 ##[Optionnel mais recommandé]
