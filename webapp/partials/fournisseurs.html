@@ -34,13 +34,23 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
+                        <th colspan="3">
+                            <div class="input-group col-md-12">
+                                <span class="input-group-addon" id="search">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                                <input type="text" class="form-control" placeholder="Search" aria-describedby="search" ng-model="query">
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
                         <th> #ID</th>
                         <th> Nom</th>
                         <th> Adresse</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="fournisseur in fournisseurs">
+                    <tr ng-repeat="fournisseur in fournisseurs | filter : query">
                         <td><a class="btn btn-primary" href="{{fournisseur.id}}"><span class="glyphicon glyphicon-pencil"></span> </a><a class="btn btn-danger" href="{{fournisseur.id}}"><span class="glyphicon glyphicon-remove"></span> </a> </td>
                         <td>{{fournisseur.nom}}</td>
                         <td>{{fournisseur.adresse}}</td>

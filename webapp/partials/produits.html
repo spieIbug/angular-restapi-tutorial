@@ -57,6 +57,16 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
+                        <th colspan="6">
+                            <div class="input-group col-md-12">
+                                <span class="input-group-addon" id="search">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                                <input type="text" class="form-control" placeholder="Search" aria-describedby="search" ng-model="query">
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
                         <th> #ID</th>
                         <th> Nom</th>
                         <th> Prix TH</th>
@@ -66,12 +76,12 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat = "produit in produits">
+                    <tr ng-repeat = "produit in produits | filter : query">
                         <td><a class="btn btn-danger" href="{{produit.id}}"><span class="glyphicon glyphicon-remove"></span> </a></td>
                         <td>{{produit.libelle}}</td>
-                        <td>{{produit.prixHt}}</td>
-                        <td>{{produit.tva}}</td>
-                        <td>{{produit.prixTtc}}</td>
+                        <td>{{produit.prixHt | euroFormat}}</td>
+                        <td>{{produit.tva | percent}}</td>
+                        <td>{{produit.prixTtc | euroFormat}}</td>
                         <td>{{produit.fournisseur}}</td>
                     </tr>
                     </tbody>
