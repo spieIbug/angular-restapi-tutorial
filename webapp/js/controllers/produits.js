@@ -3,7 +3,7 @@
  */
 (function(){
     'use strict';
-    angular.module('ProduitsModule').controller('ProduitsCtrl', function($scope,ProduitsFactory){
+    angular.module('ProduitsModule').controller('ProduitsCtrl', ['$scope','ProduitsFactory', function($scope,ProduitsFactory){
         toastr.info('Products controller has been loaded');
         $scope.produit = {
             libelle : null,
@@ -62,5 +62,5 @@
                 toastr.error('Server communication Error');
             });
         };
-    });
+    }]);
 })();

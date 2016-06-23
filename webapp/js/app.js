@@ -4,7 +4,7 @@
 (function(){
     'use strict';
     angular.module('MainApp',['ui.router','FournisseursModule', 'ProduitsModule']);
-    angular.module('MainApp').config(function($stateProvider, $urlRouterProvider) {
+    angular.module('MainApp').config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
         toastr.options.closeButton = true;
         toastr.options.closeHtml = '<button><i class="glyphicon glyphicon-remove"></i></button>';
         toastr.options.closeMethod = 'fadeOut';
@@ -28,5 +28,5 @@
                 templateUrl: "partials/produits.html",
                 controller : 'ProduitsCtrl'
             });
-    });
+    }]);
 })();

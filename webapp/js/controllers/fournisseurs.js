@@ -3,7 +3,7 @@
  */
 (function(){
     'use strict';
-    angular.module('FournisseursModule').controller('FournisseursCtrl', function($scope, FournisseursFactory){
+    angular.module('FournisseursModule').controller('FournisseursCtrl', ['$scope','FournisseursFactory',function($scope, FournisseursFactory){
         toastr.info('Fournisseurs controller has been loaded');
         $scope.fournisseurs = [];
         FournisseursFactory.fetchAll().success(function(xhrData){
@@ -53,5 +53,5 @@
             });
         };
         
-    });
+    }]);
 })();

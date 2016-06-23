@@ -3,7 +3,7 @@
  */
 (function(){
     'use strict';
-    angular.module('ProduitsModule').factory('ProduitsFactory', function($http){
+    angular.module('ProduitsModule').factory('ProduitsFactory', ['$http',function($http){
         const URL = '../Produits';
         return {
             fetchAll : function(){
@@ -22,5 +22,5 @@
                 return $http.delete(URL+'/'+id);
             }
         }
-    });
+    }]);
 })();
