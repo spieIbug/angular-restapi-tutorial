@@ -1,4 +1,0 @@
-Ah en fait j'ai oublié git
-git init pour initialiser le repertoire
-
-.gitignore nous permettra d'ignorer des dossiers créés par l'éditeur par exemple :)

@@ -2,8 +2,11 @@
 require 'vendor/autoload.php';
 $router = new Api\Router\Router ($_GET['url']);
 $router->get ( '/', function () {
+    header('location:./webapp/');
+},'AccessPoint');
+$router->get('/webapp/', function(){
     echo file_get_contents('./webapp/index.html');
-} );
+},'FrontRoute');
 //Fournisseurs router
 $router->get( '/Fournisseurs', 'Fournisseurs#findAll', 'findAllFournisseurs');
 $router->get( '/Fournisseurs/:id', 'Fournisseurs#findOne', 'findOneFournisseurs');
