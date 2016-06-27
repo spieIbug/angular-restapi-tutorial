@@ -28,6 +28,7 @@
                     $scope.fournisseur.id=xhrData.data;
                     $scope.fournisseurs.push($scope.fournisseur);
                     $scope.fournisseur = {};
+                    $('.alert-danger').hide();
                     toastr.info('Loaded datas');
                 }
             }).error(function(data){

@@ -8,7 +8,7 @@
         $scope.produit = {
             libelle : null,
             prix_ht : 0,
-            tva : 0,
+            tva : '00',
             prix_ttc : 0,
             fournisseurs_id : null
         };
@@ -32,9 +32,10 @@
                 if (xhrData.error){
                     toastr.error(xhrData.message);
                 } else {
-                    $scope.produit.id=xhrData.data;
+                    $scope.produit=xhrData.data;
                     $scope.produits.push($scope.produit);
                     $scope.produit = {};
+                    $('.alert-danger').hide();
                     toastr.info('Produit ajouté');
                 }
             }).error(function(data){

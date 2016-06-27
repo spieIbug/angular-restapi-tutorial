@@ -4,11 +4,15 @@
             Ajout d'un fournisseur {{fournisseur.nom}}
         </div>
         <div class="panel-body">
-            <form class="form-inline">
+            <form class="form-inline" name="ajoutFournisseur">
                 <div class="control-group col-md-6">
                     <label class="control-label" for="nomFrounisseur">Fournisseur</label>
                     <div class="controls">
-                        <input type="text" id="nomFrounisseur" placeholder="Nom du fournisseur" class="form-control" ng-model="fournisseur.nom">
+                        <input type="text" id="nomFrounisseur" name="nomFrounisseur" placeholder="Nom du fournisseur" class="form-control" ng-model="fournisseur.nom" required>
+                    </div>
+                    <div class="alert alert-danger" ng-show="!ajoutFournisseur.nomFrounisseur.$valid && ajoutFournisseur.nomFrounisseur.$dirty">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>Erreur</strong> Le nom du fournisseur est obligatoire.
                     </div>
                 </div>
                 <div class="control-group col-md-6">

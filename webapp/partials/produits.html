@@ -4,7 +4,7 @@
             Ajout d'un produit
         </div>
         <div class="panel-body">
-            <form class="form-inline">
+            <form class="form-inline" name="productForm">
                 <div class="control-group col-md-4">
                     <label class="control-label" for="fournisseur_id">Fournisseur</label>
                     <div class="controls" ng-controller="FournisseursCtrl">
@@ -15,19 +15,39 @@
                 <div class="control-group col-md-4">
                     <label class="control-label" for="nomProduit">Nom du produit</label>
                     <div class="controls">
-                        <input type="text" id="nomProduit" placeholder="Nom du produit" class="form-control" ng-model="produit.libelle">
+                        <input type="text" id="nomProduit" placeholder="Nom du produit" class="form-control" ng-model="produit.libelle" required name="libelle">
+                    </div>
+                    <div class="alert alert-danger" ng-show="!productForm.libelle.$valid && productForm.libelle.$dirty">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>Erreur</strong> Le nom du produit est obligatoire.
                     </div>
                 </div>
                 <div class="control-group col-md-4">
                     <label class="control-label" for="htProduit">Prix HT</label>
                     <div class="controls">
-                        <input type="text" id="htProduit" placeholder="Prix Hors taxe" class="form-control" ng-model="produit.prix_ht">
+                        <input type="text" id="htProduit" placeholder="Prix Hors taxe" class="form-control" ng-model="produit.prix_ht" name="prixHt" required ng-pattern="/^\d+(\.\d{1,2})?$/">
+                    </div>
+                    <div class="alert alert-danger" ng-show="productForm.prixHt.$error.pattern">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>Erreur</strong> Le prix HT est sous format 99999.99.
+                    </div>
+                    <div class="alert alert-danger" ng-show="productForm.prixHt.$error.required">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>Erreur</strong> Le prix HT est obligatoire
                     </div>
                 </div>
                 <div class="control-group col-md-4">
                     <label class="control-label" for="tvaProduit">Taux de TVA</label>
                     <div class="controls">
-                        <input type="text" id="tvaProduit" placeholder="Taux de TVA" class="form-control" ng-model="produit.tva">
+                        <input type="text" id="tvaProduit" placeholder="Taux de TVA" class="form-control" ng-model="produit.tva" required ng-pattern="/^\d{2}?$/" name="tva">
+                    </div>
+                    <div class="alert alert-danger" ng-show="productForm.tva.$error.pattern">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>Erreur</strong> La TVA est sous format [00 - 99].
+                    </div>
+                    <div class="alert alert-danger" ng-show="productForm.tva.$error.required">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>Erreur</strong> La TVA est obligatoire
                     </div>
                 </div>
                 <div class="control-group col-md-4">
