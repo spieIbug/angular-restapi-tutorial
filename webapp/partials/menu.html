@@ -15,6 +15,14 @@
                 <li><a ui-sref="fournisseur">Fournisseurs</a></li>
                 <li><a ui-sref="produit">Produits</a></li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{translation.LANGUE}}<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="langue in languages"><a ng-click="setLang(langue)">{{langue}}</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->
 </nav>
