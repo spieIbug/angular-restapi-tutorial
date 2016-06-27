@@ -3,6 +3,6 @@
  */
 (function(){
     'use strict';
-    angular.module('FournisseursModule',[]);
+    angular.module('FournisseursModule',['angucomplete-alt']);
     console.log('module fournisseur chargé');
 })();

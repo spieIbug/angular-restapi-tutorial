@@ -12,9 +12,10 @@
                     </div>
                 </div>
                 <div class="control-group col-md-6">
-                    <label class="control-label" for="adresseFrounisseur">Addresse</label>
+                    <label class="control-label">Addresse</label>
                     <div class="controls">
-                        <input type="text" id="adresseFrounisseur" placeholder="Adresse du fournisseur" class="form-control" ng-model="fournisseur.adresse"> 
+                        <angucomplete-alt placeholder="Search address" selected-object="selectedAddress" local-data="addresses" remote-url="https://maps.googleapis.com/maps/api/geocode/json?address=" remote-url-data-field="results" title-field="formatted_address" minlength="4" input-class="form-control form-control-small" match-class="highlight" />
+                        <input type="hidden" placeholder="Adresse du fournisseur" class="form-control" ng-value="fournisseur.adresse = selectedAddress.title">
                     </div>
                 </div>
                 <div class="control-group pull-right">

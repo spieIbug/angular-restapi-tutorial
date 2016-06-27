@@ -1,3 +1,36 @@
 .screen-middle{
     margin-top: 60px;
 }
+.angucomplete-holder {
+    position: relative;
+}
+.angucomplete-dropdown {
+    border-color: #ececec;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+    width: 100%;
+    padding: 6px;
+    cursor: pointer;
+    z-index: 9999;
+    position: absolute;
+    margin-top: -6px;
+    background-color: #ffffff;
+}
+.angucomplete-searching {
+    color: #acacac;
+    font-size: 14px;
+}
+.angucomplete-description {
+    font-size: 14px;
+}
+.angucomplete-row {
+    padding: 5px;
+    color: #000000;
+    margin-bottom: 4px;
+    clear: both;
+}
+.angucomplete-selected-row {
+    background-color: lightblue;
+    color: #ffffff;
+}
