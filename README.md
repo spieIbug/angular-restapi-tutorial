@@ -8,6 +8,9 @@
 7. Branche services   ```git checkout services```
 8. Branche directives   ```git checkout directives```
 9. Branche js-minification   ```git checkout js-minification```
+10. Branche binding-with-external-libraries   ```git checkout binding-with-external-libraries```
+11. Branche validation   ```git checkout validation```
+12. Branche internationalization   ```git checkout internationalization```
 
 #Installation
 
@@ -19,9 +22,18 @@
 
 #Architecture du projet
 
-Voir cette présentation prezi :
+##FRONTEND avec une SPA (Single Page App)
 
-https://prezi.com/gzyx3hd79lxz/build-modern-web-apps/
+    Angular MVVM
+    Router (ui.router) voir https://github.com/angular-ui/ui-router
+
+##BACKEND PHP
+
+    Router
+    Contrôleur
+    Service
+    Repository (DAO)
+    Model
 
 #Environnement technique
 PHP 5.6 > + Angular 1.x
