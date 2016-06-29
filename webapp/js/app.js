@@ -8,7 +8,10 @@
         toastr.options.closeButton = true;
         toastr.options.closeHtml = '<button><i class="glyphicon glyphicon-remove"></i></button>';
         toastr.options.closeMethod = 'fadeOut';
-        toastr.options.closeDuration = 300;
+        toastr.options.progressBar =true;
+        toastr.options.closeDuration = 100;
+        toastr.options.timeOut = 100;
+        toastr.options.positionClass = "toast-bottom-right";
         toastr.options.closeEasing = 'swing';
         toastr.options.newestOnTop = false;
         toastr.options.preventDuplicates = true;

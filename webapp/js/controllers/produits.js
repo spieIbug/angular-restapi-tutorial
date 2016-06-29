@@ -4,7 +4,6 @@
 (function(){
     'use strict';
     angular.module('ProduitsModule').controller('ProduitsCtrl', ['$scope','ProduitsFactory', function($scope,ProduitsFactory){
-        toastr.info('Products controller has been loaded');
         $scope.produit = {
             libelle : null,
             prix_ht : 0,
