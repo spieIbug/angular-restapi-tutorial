@@ -13,7 +13,7 @@
             fournisseurs_id : null
         };
         $scope.produits = [];
-        $scope.produits = ProduitsFactory.fetchAll().success(function(xhrData){
+        ProduitsFactory.fetchAll().success(function(xhrData){
             if (xhrData.error){
                 toastr.error(xhrData.message);
             } else {

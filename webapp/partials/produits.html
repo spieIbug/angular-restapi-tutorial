@@ -72,34 +72,34 @@
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                     <thead>
-                    <tr>
-                        <th colspan="6">
-                            <div class="input-group col-md-12">
-                                <span class="input-group-addon" id="search">
-                                    <span class="glyphicon glyphicon-search"></span>
-                                </span>
-                                <input type="text" class="form-control" placeholder="Search" aria-describedby="search" ng-model="query">
-                            </div>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th> #ID</th>
-                        <th> Nom</th>
-                        <th> Prix TH</th>
-                        <th> TVA</th>
-                        <th> Prix TTC</th>
-                        <th> Fournisseur</th>
-                    </tr>
+                        <tr>
+                            <th colspan="6">
+                                <div class="input-group col-md-12">
+                                    <span class="input-group-addon" id="search">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </span>
+                                    <input type="text" class="form-control" placeholder="Search" aria-describedby="search" ng-model="productQuery">
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th> #ID</th>
+                            <th> Nom</th>
+                            <th> Prix TH</th>
+                            <th> TVA</th>
+                            <th> Prix TTC</th>
+                            <th> Fournisseur</th>
+                        </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat = "produit in produits">
-                        <td><a class="btn btn-danger" ng-click="supprimerProduit(produit)"><span class="glyphicon glyphicon-remove"></span> </a></td>
-                        <td>{{produit.libelle}}</td>
-                        <td>{{produit.prix_ht | euroFormat}}</td>
-                        <td>{{produit.tva | percent}}</td>
-                        <td>{{produit.prix_ttc | euroFormat}}</td>
-                        <td>{{produit.fournisseur.nom}}</td>
-                    </tr>
+                        <tr ng-repeat="produit in produits | filter : productQuery">
+                            <td><a class="btn btn-danger" ng-click="supprimerProduit(produit)"><span class="glyphicon glyphicon-remove"></span> </a></td>
+                            <td>{{produit.libelle}}</td>
+                            <td>{{produit.prix_ht | euroFormat}}</td>
+                            <td>{{produit.tva | percent}}</td>
+                            <td>{{produit.prix_ttc | euroFormat}}</td>
+                            <td>{{produit.fournisseur.nom}}</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
