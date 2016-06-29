@@ -4,14 +4,13 @@
 (function(){
     'use strict';
     angular.module('FournisseursModule').controller('FournisseursCtrl', ['$scope','FournisseursFactory',function($scope, FournisseursFactory){
-        toastr.info('Fournisseurs controller has been loaded');
         $scope.fournisseurs = [];
         FournisseursFactory.fetchAll().success(function(xhrData){
             if (xhrData.error){
                 toastr.error(xhrData.message);
             } else {
                 $scope.fournisseurs = xhrData.data;
-                toastr.info('Loaded datas');
+                toastr.info($scope.translation.FOURNISSEURS_CHARGE);
             }
         }).error(function(data){
             toastr.error('Server communication Error');

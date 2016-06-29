@@ -6,9 +6,9 @@
         <div class="panel-body">
             <form class="form-inline" name="ajoutFournisseur">
                 <div class="control-group col-md-6">
-                    <label class="control-label" for="nomFrounisseur">Fournisseur</label>
+                    <label class="control-label" for="nomFrounisseur">{{translation.FOURNISSEUR}}</label>
                     <div class="controls">
-                        <input type="text" id="nomFrounisseur" name="nomFrounisseur" placeholder="Nom du fournisseur" class="form-control" ng-model="fournisseur.nom" required>
+                        <input type="text" id="nomFrounisseur" name="nomFrounisseur" placeholder="{{translation.NOM}}" class="form-control" ng-model="fournisseur.nom" required>
                     </div>
                     <div class="alert alert-danger" ng-show="!ajoutFournisseur.nomFrounisseur.$valid && ajoutFournisseur.nomFrounisseur.$dirty">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -16,16 +16,16 @@
                     </div>
                 </div>
                 <div class="control-group col-md-6">
-                    <label class="control-label">Addresse</label>
+                    <label class="control-label">{{translation.ADRESSE}}</label>
                     <div class="controls">
-                        <angucomplete-alt placeholder="Search address" selected-object="selectedAddress" local-data="addresses" remote-url="https://maps.googleapis.com/maps/api/geocode/json?address=" remote-url-data-field="results" title-field="formatted_address" minlength="4" input-class="form-control form-control-small" match-class="highlight" />
-                        <input type="hidden" placeholder="Adresse du fournisseur" class="form-control" ng-value="fournisseur.adresse = selectedAddress.title">
+                        <angucomplete-alt placeholder="{{translation.ADRESSE}}" selected-object="selectedAddress" local-data="addresses" remote-url="https://maps.googleapis.com/maps/api/geocode/json?address=" remote-url-data-field="results" title-field="formatted_address" minlength="4" input-class="form-control form-control-small" match-class="highlight" />
+                        <input type="hidden" placeholder="{{translation.ADRESSE}}" class="form-control" ng-value="fournisseur.adresse = selectedAddress.title">
                     </div>
                 </div>
                 <div class="control-group pull-right">
                     <div class="controls">
-                        <a class="btn btn-success" ng-click="ajouterFournisseur()"><span class="glyphicon glyphicon-plus"></span> Valider</a>
-                        <a class="btn btn-danger" ng-click="annulerSaisie()"><span class="glyphicon glyphicon-remove"></span> Annuler</a>
+                        <a class="btn btn-success" ng-click="ajouterFournisseur()"><span class="glyphicon glyphicon-ok"></span> {{translation.VALIDER}}</a>
+                        <a class="btn btn-danger" ng-click="annulerSaisie()"><span class="glyphicon glyphicon-remove"></span> {{translation.ANNULER}}</a>
                     </div>
                 </div>
             </form>
@@ -33,7 +33,7 @@
     </div>
     <div class="panel panel-default">
         <!-- Default panel contents -->
-        <div class="panel-heading">Liste des fournisseurs</div>
+        <div class="panel-heading">{{translation.LISTE_FOURNISSEURS}}</div>
         <div class="panel-body">
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
@@ -44,14 +44,14 @@
                                 <span class="input-group-addon" id="search">
                                     <span class="glyphicon glyphicon-search"></span>
                                 </span>
-                                <input type="text" class="form-control" placeholder="Search" aria-describedby="search" ng-model="query">
+                                <input type="text" class="form-control" placeholder="{{translation.RECHERCHE}}" aria-describedby="{{translation.RECHERCHE}}" ng-model="query">
                             </div>
                         </th>
                     </tr>
                     <tr>
                         <th> #ID</th>
-                        <th> Nom</th>
-                        <th> Adresse</th>
+                        <th>{{translation.NOM}}</th>
+                        <th>{{translation.ADRESSE}}</th>
                     </tr>
                     </thead>
                     <tbody>
