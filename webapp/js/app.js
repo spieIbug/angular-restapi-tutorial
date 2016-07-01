@@ -4,7 +4,9 @@
 (function(){
     'use strict';
     angular.module('MainApp',['ui.router','FournisseursModule', 'ProduitsModule']);
-    angular.module('MainApp').config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
+    angular.module('MainApp').config(['$stateProvider','$urlRouterProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $httpProvider, ServerRequestsInterceptor) {
+        // Add the interceptor to the $httpProvider.
+        $httpProvider.interceptors.push('ServerRequestsInterceptor');
         toastr.options.closeButton = true;
         toastr.options.closeHtml = '<button><i class="glyphicon glyphicon-remove"></i></button>';
         toastr.options.closeMethod = 'fadeOut';

@@ -1,5 +1,26 @@
+@font-face {
+    font-family: "handwritten";
+    src: url('AlexBrush-Regular.ttf');
+}
 .screen-middle{
     margin-top: 60px;
+}
+#statistics-div {
+    width	: 100%;
+    height	: 500px;
+}
+.slogan {
+    font-family: "handwritten";
+    font-size: 25pt;
+    color: #000000;
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    transform: rotate(-27deg);
+    -ms-transform: rotate(-27deg);
+    -webkit-transform: rotate(-27deg);
+    letter-spacing: 1px;
+    line-height: 19pt;
 }
 .angucomplete-holder {
     position: relative;

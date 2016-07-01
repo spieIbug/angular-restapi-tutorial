@@ -7,13 +7,16 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
     <link rel="stylesheet" href="node_modules/toastr/build/toastr.min.css">
-    <!--link rel="stylesheet" href="node_modules/angucomplete-alt/angucomplete-alt.css"-->
     <link rel="stylesheet" href="css/formation.css">
     <!-- jquery + bootstrap libraries -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Notifications -->
     <script src="node_modules/toastr/build/toastr.min.js"></script>
+    <!-- AmChart-->
+    <script src="node_modules/amcharts3/amcharts/amcharts.js"></script>
+    <script src="node_modules/amcharts3/amcharts/serial.js"></script>
+    <script src="node_modules/amcharts3/amcharts/themes/chalk.js"></script>
     <!-- Angular JS -->
     <script src="node_modules/angular/angular.min.js"></script>
     <!-- External librarie for routing -->
@@ -24,6 +27,18 @@
 <div class="container" ng-controller="MainCtrl">
     <menu></menu>
     <div ui-view class="screen-middle"></div>
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            Performances d'execution
+        </div>
+        <div class="panel-body">
+            <amchart ng-model='graphique'></amchart>
+        </div>
+    </div>
+    <div class="slogan">
+        <p>Formation</p>
+        <p>AngularJs</p>
+    </div>
 </div>
 <script src="js/app.js"></script>
 <script src="js/directives.js"></script>

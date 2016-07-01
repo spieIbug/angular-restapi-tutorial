@@ -78,4 +78,58 @@
             }
         }
     });
+    angular.module('MainApp').factory('ServerRequestsInterceptor',['$q',function($q){
+        var startTime = 0;
+        var endTime = 0;
+        var executionTime = 0;
+        var url = '';
+        var dataNature = '';
+        var stats = [];
+        return {
+            // On request success
+            request: function (config) {
+                config.startTime = Date.now();
+                return config || $q.when(config);
+            },
+            // On request failure
+            requestError: function (rejection) {
+                config.startTime = Date.now();
+                return $q.reject(rejection);
+            },
+            // On response success
+            response: function (response) {
+                response.config.endTime = new Date().getTime();
+                dataNature = response.config.headers.Accept;
+                executionTime = response.config.endTime - response.config.startTime;
+                stats.push({
+                    'url': response.config.url,
+                    'responseType': response.config.headers.Accept,
+                    'status': true,
+                    'startTime': response.config.startTime,
+                    'endTime': response.config.endTime,
+                    'executionTime': executionTime
+                });
+                return response || $q.when(response);
+            },
+            // On response failture
+            responseError: function (rejection) {
+                response.config.endTime = new Date().getTime();
+                dataNature = response.config.headers.Accept;
+                executionTime = response.config.endTime - response.config.startTime;
+                stats.push({
+                    'url': response.config.url,
+                    'responseType': response.config.headers.Accept,
+                    'status': true,
+                    'startTime': response.config.startTime,
+                    'endTime': response.config.endTime,
+                    'executionTime': executionTime
+                });
+                return $q.reject(rejection);
+            },
+            getStatistics : function(){
+                console.log(stats);
+                return stats;
+            }
+        };
+    }]);
 })();
