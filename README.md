@@ -1,4 +1,4 @@
-#Structure de la formation
+# Structure de la formation
 1. Branche Front-Start   ```git checkout Front-Start```
 2. Branche router   ```git checkout router```
 3. Branche modules-dependecy-injection   ```git checkout modules-dependency-injection```
@@ -12,7 +12,7 @@
 11. Branche validation   ```git checkout validation```
 12. Branche internationalization   ```git checkout internationalization```
 
-#Installation
+# Installation
 
 ```$ composer dump-autoload```
 
@@ -20,14 +20,14 @@
 
 ```$ npm install```
 
-#Architecture du projet
+# Architecture du projet
 
-##FRONTEND avec une SPA (Single Page App)
+## FRONTEND avec une SPA (Single Page App)
 
     Angular MVVM
     Router (ui.router) voir https://github.com/angular-ui/ui-router
 
-##BACKEND PHP
+## BACKEND PHP
 
     Router
     Contrôleur
@@ -35,20 +35,20 @@
     Repository (DAO)
     Model
 
-#Environnement technique
+# Environnement technique
 PHP 5.6 > + Angular 1.x
-##[Optionnel mais recommandé]
+## [Optionnel mais recommandé]
 Dans cette formation j'utilise Git (Outil de versionning du code). Vous pouvez l'installer via :
 
 ### Git-scm
 
 https://git-scm.com/downloads
 
-##[Obligatoire]
+## [Obligatoire]
 Vous aurez besoin d'installer (Apache serveur web, Php pour notre backend, MySQL pour la base de données). Pour éviter des configurer
 Ces outils ensembles, je recommande d'installer xampp:
 
-###Xampp
+### Xampp
 
 https://www.apachefriends.org/fr/download.html
 
